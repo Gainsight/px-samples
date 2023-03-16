@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<metadata>
+    
+    <attr path="/api/package[@name='com.gainsight.px.mobile']/
+    class[@name='ValueMap']/
+    method[@name='entrySet']" 
+    name="return">System.Collections.ICollection</attr>
+    
+    <attr path="/api/package[@name='com.gainsight.px.mobile']/
+    class[@name='ValueMap']/
+    method[@name='keySet']" 
+    name="return">System.Collections.ICollection</attr>
+    
+    <attr path="/api/package[@name='com.gainsight.px.mobile']/
+    class[@name='ValueMap']/
+    method[@name='values']" 
+    name="return">System.Collections.ICollection</attr>
+
+    <attr path="/api/package[@name='com.gainsight.px.mobile.internal']/class[@name='ac.ac']"
+      name="managedName">Aca</attr>
+
+    <attr path="/api/package[@name='com.gainsight.px.mobile.internal']/class[@name='ae.ae']"
+      name="managedName">Aea</attr>
+    
+</metadata>
