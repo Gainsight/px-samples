@@ -1,0 +1,67 @@
+﻿@page "/"
+@inject IJSRuntime JS
+
+<h1>Hello, world!</h1>
+
+Welcome to your new app.
+
+<SurveyPrompt Title="How is Blazor working for you?" />
+
+<button id="gpx_init" class="btn btn-primary" @onclick="GPXInit">GPX Init</button>
+
+<button id="gpx_identify" class="btn btn-primary" @onclick="GPXIdentify">GPX Identify</button>
+
+<button class="btn btn-primary" id="cEvent_button" @onclick="CustomEvent">Custom Event</button>
+
+@code {
+
+    private async void GPXInit()
+    {
+        try
+        {
+            Dictionary<string, object> config = new Dictionary<string, object>();
+            config.Add("apiKey", "AP-XXXXXXXXXXXX-3");
+            config.Add("shouldTrackPages", true);
+            config.Add("shouldTrackTapEvents", true);
+            config.Add("enabled", true);
+            await JS.InvokeVoidAsync("window.gainsightpx.initialize", config);
+        }
+        catch (Exception ex)
+        {
+            System.Console.WriteLine(ex.Message);
+        }
+    }
+
+    private async void GPXIdentify()
+    {
+        try
+        {
+#if IOS
+            await JS.InvokeVoidAsync("window.gainsightpx.identifyWithID", "Balzor_ios_user");
+#elif ANDROID
+            await JS.InvokeVoidAsync("window.gainsightpx.identifyWithID", "Balzor_android_user");
+#endif
+        }
+        catch (Exception ex)
+        {
+            System.Console.WriteLine(ex.Message);
+        }
+
+    }
+
+    private async void CustomEvent()
+    {
+        try
+        {
+            Dictionary<string, object> cevent = new Dictionary<string, object>();
+            cevent.Add("eventName", "purchase_success");
+            cevent.Add("properties", null);
+            await JS.InvokeVoidAsync("window.gainsightpx.customEvent", cevent);
+        }
+        catch (Exception ex)
+        {
+            System.Console.WriteLine(ex.Message);
+        }
+
+    }
+}

@@ -1,0 +1,1 @@
+<resources xmlns:ns1="http://schemas.android.com/tools"><item name="gpx_engagement_view" type="id" /><item name="gpx_web_view_container" type="id" /><integer name="gpx_device_type" ns1:ignore="UnusedResources" ns1:override="true">1</integer></resources>

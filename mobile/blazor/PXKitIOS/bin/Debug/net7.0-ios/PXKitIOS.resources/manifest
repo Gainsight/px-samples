@@ -1,0 +1,12 @@
+﻿<BindingAssembly>
+	<NativeReference Name="PXKit.xcframework">
+		<ForceLoad></ForceLoad>
+		<Frameworks>Foundation UIKit</Frameworks>
+		<IsCxx></IsCxx>
+		<Kind>Framework</Kind>
+		<LinkerFlags>-Wl,-rpath -Wl,@executable_path/Frameworks</LinkerFlags>
+		<NeedsGccExceptionHandling></NeedsGccExceptionHandling>
+		<SmartLink></SmartLink>
+		<WeakFrameworks></WeakFrameworks>
+	</NativeReference>
+</BindingAssembly>

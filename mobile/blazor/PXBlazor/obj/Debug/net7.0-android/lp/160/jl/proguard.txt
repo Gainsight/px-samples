@@ -1,0 +1,84 @@
+# Add project specific ProGuard rules here.
+# You can control the set of applied configuration files using the
+# proguardFiles setting in build.gradle.
+#
+# For more details, see
+#   http://developer.android.com/guide/developing/tools/proguard.html
+
+# If your project uses WebView with JS, uncomment the following
+# and specify the fully qualified class name to the JavaScript interface
+# class:
+#-keepclassmembers class fqcn.of.javascript.interface.for.webview {
+#   public *;
+#}
+
+# Uncomment this to preserve the line number information for
+# debugging stack traces.
+#-keepattributes SourceFile,LineNumberTable
+
+# If you keep the line number information, uncomment this to
+# hide the original source file name.
+#-renamesourcefileattribute SourceFile
+
+# https://stackoverflow.com/a/60548653/11687890
+-keeppackagenames com.gainsight.px.mobile**
+
+-keepattributes Exceptions, MethodParameters
+
+-keep class com.gainsight.px.mobile.GainsightPX$Builder { public *;}
+-keep class com.gainsight.px.mobile.GainsightPX$PXHost { public *;}
+-keep class com.gainsight.px.mobile.GainsightPX$EngagementCallback { public *;}
+-keep interface com.gainsight.px.mobile.GainsightPX$ExceptionHandler { public *;}
+-keep interface com.gainsight.px.mobile.GainsightPX$EngagementCallback { public *;}
+-keep class com.gainsight.px.mobile.EngagementMetaData { *; }
+-keep class com.gainsight.px.mobile.GainsightPX {
+   public *;
+   public static *;
+   void addUiDelegate(com.gainsight.px.mobile.UIDelegate);
+   void removeUiDelegate(com.gainsight.px.mobile.UIDelegate);
+}
+
+-keep interface com.gainsight.px.mobile.UIDelegate { *; }
+-keep interface com.gainsight.px.mobile.UIDelegate$InteractionReport { *; }
+-keep interface com.gainsight.px.mobile.UIDelegate$TreeBuilder { *; }
+-keep interface com.gainsight.px.mobile.UIDelegate$Callback { *; }
+
+-keep class com.gainsight.px.mobile.EngagementMetaData { public *;}
+-keep class com.gainsight.px.mobile.BuildConfig { public *;}
+-keep class com.gainsight.px.mobile.core.BuildConfig { public *;}
+-keep class com.gainsight.px.mobile.User { public *;}
+-keep class com.gainsight.px.mobile.GlobalContextData { public *;}
+-keep class com.gainsight.px.mobile.User$Gender { public *; public static *;}
+-keep class com.gainsight.px.mobile.Account { public *;}
+-keep class com.gainsight.px.mobile.ScreenEventData { public *;}
+-keep class com.gainsight.px.mobile.ValueMap { public *;}
+-keep class com.gainsight.px.mobile.Logger { public *;}
+-keep class com.gainsight.px.mobile.LogLevel { public *;}
+-keep class com.gainsight.px.mobile.Crypto {
+    public *;
+    <methods>;
+}
+-keepclassmembers class * extends com.gainsight.px.mobile.ValueMap {
+    <init>(java.util.Map);
+}
+
+#noinspection ShrinkerUnresolvedReference
+-keep class android.support.v7.widget.RecyclerView$ViewHolder {
+    public android.view.View itemView;
+}
+-keep class android.support.v7.widget.RecyclerView {
+    int getChildAdapterPosition(android.view.View);
+    #noinspection ShrinkerUnresolvedReference
+    android.support.v7.widget.RecyclerView$ViewHolder findViewHolderForLayoutPosition(int);
+}
+
+#noinspection ShrinkerUnresolvedReference
+-keep class androidx.recyclerview.widget.RecyclerView$ViewHolder {
+    public android.view.View itemView;
+}
+-keep class androidx.recyclerview.widget.RecyclerView {
+    int getChildAdapterPosition(android.view.View);
+    #noinspection ShrinkerUnresolvedReference
+    androidx.recyclerview.widget.RecyclerView$ViewHolder findViewHolderForLayoutPosition(int);
+}
+
